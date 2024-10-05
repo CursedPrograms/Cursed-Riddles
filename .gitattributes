@@ -2,3 +2,18 @@
 *.md linguist-generated=false
 *.md linguist-documentation=false
 *.md linguist-detectable=true
+
+*.json linguist-vendored=false
+*.json linguist-generated=false
+*.json linguist-documentation=false
+*.json linguist-detectable=true
+
+*.txt linguist-vendored=false
+*.txt linguist-generated=false
+*.txt linguist-documentation=false
+*.txt linguist-detectable=true
+
+*.svg linguist-vendored=false
+*.svg linguist-generated=false
+*.svg linguist-documentation=false
+*.svg linguist-detectable=true
