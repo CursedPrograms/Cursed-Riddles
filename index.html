@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursed Riddles</title>
+  <meta name="description" content="Cursed Riddles: twelve riddles written in Brainfuck. Run the code in your browser, read the riddle and answer it.">
+  <link href="https://cursedprograms.github.io/cursedentertainment/cursedFavicon.png" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="site/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Cursed Riddles</h1>
+    <p class="tagline">Twelve riddles written in Brainfuck. Run the code, read the riddle, answer it.</p>
+    <nav>
+      <a href="#play">Play</a>
+      <a href="#playground">Playground</a>
+      <a href="#local">Run it locally</a>
+      <a href="https://github.com/CursedPrograms/Cursed-Riddles">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="play">
+      <h2>Play</h2>
+      <p>Each riddle is a Brainfuck program. Press <strong>Run</strong> to watch it print the riddle on the tape, then type your answer. The answers are stored only as hashes, so the code will not give them away.</p>
+      <div id="progress">Loading riddles...</div>
+      <div id="picker" class="picker"></div>
+
+      <div class="panel" id="riddle-panel" hidden>
+        <div class="panel-head">
+          <h3 id="riddle-title">Riddle</h3>
+          <span id="riddle-file" class="file"></span>
+        </div>
+        <pre id="riddle-code" class="code"></pre>
+        <div class="runbar">
+          <button id="run" class="btn">Run</button>
+          <button id="run-instant" class="btn ghost">Run instantly</button>
+          <label class="speed">Speed <input id="speed" type="range" min="1" max="6" value="4"></label>
+        </div>
+        <div id="tape" class="tape" aria-label="Brainfuck tape"></div>
+        <div id="riddle-output" class="output" aria-live="polite"></div>
+        <form id="answer-form" class="answer">
+          <input id="answer" type="text" placeholder="Your answer" autocomplete="off" aria-label="Your answer">
+          <button class="btn" type="submit">Check</button>
+          <button class="btn ghost" type="button" id="hint">Hint</button>
+        </form>
+        <div id="verdict" class="verdict" aria-live="polite"></div>
+        <div class="nav-riddles">
+          <button class="btn ghost" id="prev">Previous</button>
+          <button class="btn ghost" id="next">Next</button>
+        </div>
+      </div>
+      <p class="small"><button id="reset" class="link">Reset progress</button></p>
+    </section>
+
+    <section id="playground">
+      <h2>Playground</h2>
+      <p>Run any Brainfuck program, or turn your own text into one and write a riddle of your own.</p>
+      <div class="cols">
+        <div class="panel">
+          <h3>Run Brainfuck</h3>
+          <textarea id="pg-code" rows="8" spellcheck="false" aria-label="Brainfuck code"></textarea>
+          <label class="field">Input for <code>,</code> <input id="pg-input" type="text" autocomplete="off"></label>
+          <button id="pg-run" class="btn">Run</button>
+          <div id="pg-output" class="output"></div>
+        </div>
+        <div class="panel">
+          <h3>Text to Brainfuck</h3>
+          <textarea id="enc-text" rows="3" aria-label="Text to encode">What has a neck but no head?</textarea>
+          <button id="enc-run" class="btn">Encode</button>
+          <button id="enc-copy" class="btn ghost">Copy</button>
+          <pre id="enc-output" class="code"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="local">
+      <h2>Run it locally</h2>
+      <p>The same riddles play in a terminal with Python 3 and nothing else installed.</p>
+      <pre class="code">git clone https://github.com/CursedPrograms/Cursed-Riddles.git
+cd Cursed-Riddles
+python main.py                     # play the riddles
+python main.py run riddles/riddle_00.bf
+python main.py encode "your text"  # write your own
+python main.py encrypt riddle.bf riddle.key riddle.enc</pre>
+      <p>Windows: <code>setup.bat</code> or <code>setup.ps1</code>. Linux and macOS: <code>./setup.sh</code>. Encrypting and decrypting riddle files needs <code>pip install cryptography</code>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Cursed Entertainment</p>
+    <p><a href="https://github.com/CursedPrograms/Cursed-Riddles">GitHub</a> · <a href="https://cursed-entertainment.itch.io/">itch.io</a> · <a href="https://ko-fi.com/cursedentertainment">Ko-fi</a></p>
+  </footer>
+
+  <script src="site/site.js"></script>
+</body>
+
+</html>

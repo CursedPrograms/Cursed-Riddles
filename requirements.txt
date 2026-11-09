@@ -1,0 +1,2 @@
+# Only needed for: python main.py encrypt / decrypt
+cryptography
